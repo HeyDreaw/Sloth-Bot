@@ -2,13 +2,11 @@
 
 require 'twitter'
 
-def client
-    @client ||= Twitter::REST::Client.new do |config|
-      config.consumer_key = ENV["consumer_key"]
-      config.consumer_secret = ENV["consumer_secret"]
-      config.access_token = ENV["access_token"]
-      config.access_token_secret = ENV["access_token_secret"]
-		end
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key        = "6OAd4ySh4GAlghx8UdIRbQ1or"
+  config.consumer_secret     = "NTAJkYF2cueWVXrb78pXjEuX9C9Ib4LiNwvXjK2u06oXG4NODO"
+  config.access_token        = "704463273484156928-NsTsIqOpMpinZbXvhANTNmDQ0w7wZls"
+  config.access_token_secret = "wg5qKMyiaZ1J0dLxCkAWI0vkFbHpblZt0D7R8l6FFQxU6"
 end
 
 client.search("#badday").take(10).each do |tweet|
