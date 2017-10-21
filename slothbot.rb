@@ -11,7 +11,6 @@ end
 
 client.search("#badday").take(10).each do |tweet|
   puts "#{tweet.user.screen_name}: #{tweet.text}"
-  client.favorite(tweet)
 	client.update_with_media("@#{tweet.user.screen_name} Here's a picture of a sloth. I hope you have a better day!", File.new("cutesloth.jpg"),
 		in_reply_to_status_id: tweet.id)
 end
