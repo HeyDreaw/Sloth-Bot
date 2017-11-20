@@ -9,8 +9,6 @@ client = Twitter::REST::Client.new do |config|
   config.access_token_secret = "wg5qKMyiaZ1J0dLxCkAWI0vkFbHpblZt0D7R8l6FFQxU6"
 end
 
-client.search("bad day").take(5).each do |tweet|
-  puts "#{tweet.user.screen_name}: #{tweet.text}"
-	client.update_with_media("@#{tweet.user.screen_name} Here's a picture of a sloth. I hope you have a better day!", File.new("cutesloth.jpg"),
-		in_reply_to_status_id: tweet.id)
+client.search("sloths").take(10).each do |tweet|
+	client.update("#{tweet.user.screen_name}: #{tweet.text}")
 end
